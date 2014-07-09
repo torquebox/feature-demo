@@ -10,15 +10,17 @@ end
   queue.publish(message: n)
 end
 
-# talk about encodings
+# encodings
 # show json (only works because json gem is available)
 # show default
 
 # request/respond
 
 sync_queue = TorqueBox::Messaging::Queue.new('sync-queue')
+
 sync_queue.respond do |m|
   puts "Responder received #{m}"
+  sleep(2)
   m.upcase
 end
 
@@ -27,3 +29,6 @@ end
   puts "Response is #{response}"
   response
 end
+
+# can connect to a remote HornetQ
+# can talk to apps in Clojure (via Immutant)

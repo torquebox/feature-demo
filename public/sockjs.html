@@ -1,8 +1,8 @@
 <!doctype html>
 <html>
   <head>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="http://cdn.sockjs.org/sockjs-0.3.min.js"></script>
+    <script src="jquery.min.js"></script>
+    <script src="sockjs-0.3.min.js"></script>
     <style>
       .box {
         width: 300px;
@@ -68,7 +68,6 @@
       sockjs.onclose   = function()  {print('[*] close'); sockjs.open;};
 
       form.submit(function() {
-        print('[ ] sending', inp.val());
         sockjs.send(inp.val());
         inp.val('');
         return false;
