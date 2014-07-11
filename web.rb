@@ -9,4 +9,8 @@ end
 
 # require 'torquebox-web'
 # TorqueBox::Web::Server.run('default', {root: '.', rackup: 'basic.ru'}).start
-# Above is similar to: `rackup -s torquebox` or `rails server -s torquebox`
+#
+# Above is what happens when you:
+# - `rackup -s torquebox`
+# - `rails server torquebox`
+# - `torquebox run`
