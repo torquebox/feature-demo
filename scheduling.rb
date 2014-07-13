@@ -1,14 +1,15 @@
 require 'torquebox-scheduling'
 
-TorqueBox::Scheduling::Scheduler.schedule(:foo, in: 500) do
-  puts "called"
-end
-
+# schedule a job with a name and options
 job = TorqueBox::Scheduling::Scheduler.schedule(:foo, every: 1000) do
   puts "called every second"
 end
 
+# stop the job
 job.unschedule
+
+# or stop it by name
+TorqueBox::Scheduling::Scheduler.unschedule(:foo)
 
 # activesupport Numeric muckery supported
 
