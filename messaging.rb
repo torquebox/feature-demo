@@ -16,12 +16,12 @@ end
 end
 
 # default encoding is marshal
-puts TorqueBox::Messaging.default_connection
+puts TorqueBox::Messaging.default_encoding
 
 # show json, edn also supported (if gems are loaded)
 
 # you can override the default
-# TorqueBox::Messaging.default_connection = :json
+# TorqueBox::Messaging.default_encoding = :json
 
 # request/respond
 
