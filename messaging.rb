@@ -2,7 +2,7 @@ require 'torquebox-messaging'
 
 # create a reference to a queue. will create the queue in HornetQ as
 # well if it doesn't already exist
-queue = TorqueBox::Messaging::Queue.new('some-queue')
+queue = TorqueBox::Messaging.queue('some-queue')
 
 # attach a listener to the queue that will be called when a message
 # comes in
@@ -25,7 +25,7 @@ puts TorqueBox::Messaging.default_encoding
 
 # request/respond
 
-sync_queue = TorqueBox::Messaging::Queue.new('sync-queue')
+sync_queue = TorqueBox::Messaging.queue('sync-queue')
 
 # attach a responder - a listener who's return value is sent to the
 # requester
