@@ -17,10 +17,17 @@ require 'active_support/all'
 
 TorqueBox::Scheduling::Scheduler.schedule(:foo,
                                           every: 1.second,
-                                          in: 5.seconds,
+                                          in: 2.seconds,
                                           limit: 3) do
-  puts "called every second, thrice, starting in 5 seconds"
+  puts "called every second, thrice, starting in 2 seconds"
 end
+
+# you can also use cron-style specifications
+TorqueBox::Scheduling::Scheduler.schedule(:bar,
+                                          cron: '0 0 12 ? * WED') do
+  puts "I fire at noon on Wednesdays"
+end
+
 
 # These jobs demonstrate singleton behavior in a cluster
 

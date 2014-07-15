@@ -11,7 +11,7 @@ puts cache[:a_key].inspect
 # operations
 
 # #put_if_absent only sets the value if it doesn't exist, returning the
-# current value, or nil if no action taken
+# prior (and still current, on failure) value
 cache.put_if_absent(:another_key, 1) # => nil
 cache.put_if_absent(:another_key, 2) # => 1, cache is unchanged
 
@@ -49,7 +49,7 @@ cache.remove(:another_key, :new_value)  # => true
 # the cache
 another_cache = TorqueBox::Caching.cache(:another, encoding: :json)
 
-# valid encodings are: :edn, :json, :marshal, :marshal_base64,
+# valid encodings are: :edn, :json, :marshal_base64,
 # :marshal_smart. The first two require an edn or json gem to be
 # available, respectively.
 
