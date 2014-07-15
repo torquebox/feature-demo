@@ -26,12 +26,6 @@ cache.replace(:foobar, :hi)         # => nil
 cache.compare_and_set(:another_key, :hi, :new_value)     # => true
 cache.compare_and_set(:another_key, :hi, :another_value) # => false
 
-# #remove works like #compare_and_set, and only removes the entry if
-# it's key *and value* match the given params. Returns true if the
-# entry was removed.
-cache.remove(:another_key, :some_value) # => true
-cache.remove(:another_key, :new_value)  # => true
-
 # caches also support :ttl and :idle options. They can be passed to
 # any of the atomic operations above, as well as #put
 
@@ -41,6 +35,15 @@ cache.put(:a_key, :a_value, ttl: 1000)
 # this entry will disappear 1 second after being last accessed. Any
 # access during that second resets the counter
 cache.put(:a_key, :a_value, idle: 1000)
+
+# #remove can take a key, or a key and value. The latter arity works
+# like #compare_and_set, and only removes the entry if it's key *and
+# value* match the given params. Returns true if the entry was
+# removed.
+cache.remove(:a_key)                    # => true
+cache.remove(:another_key, :some_value) # => true
+cache.remove(:another_key, :new_value)  # => true
+
 
 # caches encode keys and values. The encoding is set when looking up
 # the cache
