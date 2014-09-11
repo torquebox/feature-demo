@@ -1,7 +1,7 @@
 source 'https://rubygems.org/'
 source 'http://torquebox.org/4x/builds/gem-repo/'
 
-TORQUEBOX_VERSION = '4.x.incremental.173'
+TORQUEBOX_VERSION = '4.x.incremental.208'
 
 gem 'sinatra',              '~> 1.4.5'
 

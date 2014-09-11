@@ -3,7 +3,7 @@ require 'torquebox-messaging'
 
 topic = TorqueBox::Messaging.topic('browser-messages')
 
-TorqueBox::Web::Server.sockjs('/messages').on_connection do |sockjs_conn|
+TorqueBox::Web.server.sockjs(:path => '/messages').on_connection do |sockjs_conn|
   # write any messages from the topic to this sockjs connection
   msg_listener = topic.listen do |message|
     sockjs_conn.write(message)

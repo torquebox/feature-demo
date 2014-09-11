@@ -8,7 +8,7 @@ get '/' do
 end
 
 # require 'torquebox-web'
-# TorqueBox::Web::Server.run('default', {root: '.', rackup: 'basic.ru'}).start
+# TorqueBox::Web.run(root: '.', rackup: 'basic.ru')
 #
 # Above is what happens when you:
 # - `rackup -s torquebox`
